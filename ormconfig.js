@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
     entities: [`${__dirname}/dist/models/*.js`],
     migrations: [`${__dirname}/dist/database/migrations/*.js`],
     cli: {
-      migrationsDir: `${__dirname}/database/migrations`,
+      migrationsDir: `${__dirname}/dist/database/migrations`,
     },
   };
 } else {
