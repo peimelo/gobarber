@@ -9,6 +9,18 @@ app.use(express.json());
 
 app.use(routes);
 
-app.listen(3333, () => {
+app.get('/', (request, response) => {
+  const help = `
+  <pre>
+    Welcome
+  </pre>
+  `;
+
+  response.send(help);
+});
+
+const port = process.env.PORT || 3333;
+
+app.listen(port, () => {
   console.log('🚀 Server started on port 3333.');
 });
