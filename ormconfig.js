@@ -1,3 +1,5 @@
+const rootDir = process.env.NODE_ENV === 'development' ? 'src' : 'dist';
+
 module.exports = {
   type: 'postgres',
   host: 'localhost',
@@ -5,9 +7,9 @@ module.exports = {
   username: 'postgres',
   password: 'docker',
   database: 'postgres',
-  entities: ['src/**/*.entity{.js,.ts}'],
-  migrations: ['src/database/migrations/*{.js,.ts}'],
+  entities: [rootDir + '/**/*.entity{.js,.ts}'],
+  migrations: [rootDir + '/database/migrations/*{.js,.ts}'],
   cli: {
-    migrationsDir: 'src/database/migrations',
+    migrationsDir: rootDir + '/database/migrations',
   },
 };
