@@ -1,7 +1,4 @@
 if (process.env.NODE_ENV === 'production') {
-  console.log('entities', `${__dirname}/dist/models/*.js`);
-  console.log('migrations', `${__dirname}/dist/database/migrations/*.js`);
-  console.log('migrations2', `${__dirname}/dist/database/migrations`);
   module.exports = {
     type: 'postgres',
     host: 'localhost',
@@ -9,10 +6,10 @@ if (process.env.NODE_ENV === 'production') {
     username: 'postgres',
     password: 'docker',
     database: 'postgres',
-    entities: [`${__dirname}/dist/models/*.js`],
-    migrations: [`${__dirname}/dist/database/migrations/*.js`],
+    entities: ['/app/dist/models/*.js'],
+    migrations: ['/app/dist/database/migrations/*.js'],
     cli: {
-      migrationsDir: `${__dirname}/dist/database/migrations`,
+      migrationsDir: '/app/dist/database/migrations',
     },
   };
 } else {
