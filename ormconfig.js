@@ -6,10 +6,10 @@ if (process.env.NODE_ENV === 'production') {
     username: 'postgres',
     password: 'docker',
     database: 'postgres',
-    entities: ['./dist/models/*.js'],
-    migrations: ['./dist/database/migrations/*.js'],
+    entities: [`${__dirname}/dist/models/*.js`],
+    migrations: [`${__dirname}/dist/database/migrations/*.js`],
     cli: {
-      migrationsDir: './dist/database/migrations',
+      migrationsDir: `${__dirname}/database/migrations`,
     },
   };
 } else {
