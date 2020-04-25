@@ -7,7 +7,7 @@ module.exports = {
   username: process.env.TYPEORM_USERNAME || 'postgres',
   password: process.env.TYPEORM_PASSWORD || 'docker',
   database: process.env.TYPEORM_DATABASE || 'postgres',
-  entities: [rootDir + '/**/*.entity{.js,.ts}'],
+  entities: [rootDir + '/models/*.entity{.js,.ts}'],
   migrations: [rootDir + '/database/migrations/*{.js,.ts}'],
   cli: {
     migrationsDir: rootDir + '/database/migrations',
