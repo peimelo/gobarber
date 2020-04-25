@@ -7,7 +7,7 @@
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
     "dev:typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "postinstall": "yarn build && rm -rf src/ && cp -r dist/ src/"
+    "heroku-postbuild": "yarn build && rm -rf src/ && cp -r dist/ src/"
   },
   "dependencies": {
     "date-fns": "^2.12.0",
