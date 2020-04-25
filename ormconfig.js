@@ -1,4 +1,7 @@
 if (process.env.NODE_ENV === 'production') {
+  console.log('entities', `${__dirname}/dist/models/*.js`);
+  console.log('migrations', `${__dirname}/dist/database/migrations/*.js`);
+  console.log('migrations2', `${__dirname}/dist/database/migrations`);
   module.exports = {
     type: 'postgres',
     host: 'localhost',
