@@ -33,11 +33,16 @@ export default class AlterProviderInAppointments1587906952043
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     const table = await queryRunner.getTable('appointments');
-    const foreignKey =
-      table.foreignKeys.find(
+
+    if (table) {
+      const foreignKey = table.foreignKeys.find(
         fk => fk.columnNames.indexOf('providerId') !== -1,
-      ) || '';
-    await queryRunner.dropForeignKey('appointments', foreignKey);
+      );
+
+      if (foreignKey) {
+        await queryRunner.dropForeignKey('appointments', foreignKey);
+      }
+    }
 
     await queryRunner.dropColumn('appointments', 'providerId');
 
