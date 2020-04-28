@@ -1,5 +1,6 @@
 import express from 'express';
 import 'reflect-metadata';
+import uploadConfig from './config/upload';
 import './database';
 import routes from './routes';
 
@@ -18,6 +19,8 @@ app.get('/', (request, response) => {
 
   response.send(help);
 });
+
+app.use('/files', express.static(uploadConfig.directory));
 
 const port = process.env.PORT || 3333;
 
