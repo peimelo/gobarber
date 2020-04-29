@@ -1,6 +1,12 @@
+import * as dotenv from 'dotenv';
+
+if (process.env.NODE_ENV === 'development') {
+  dotenv.config();
+}
+
 export default {
   jwt: {
-    secret: process.env.JWT_SECRET || 'cd07714c7e9d2e152a3d5c94a8ef8189',
+    secret: process.env.JWT_SECRET || '',
     expiresIn: '1d',
   },
 };
