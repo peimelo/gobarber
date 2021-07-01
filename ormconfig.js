@@ -1,6 +1,7 @@
-const rootDir = process.env.NODE_ENV === 'development' ? 'src' : 'dist';
+const isProduction = process.env.NODE_ENV === 'production';
+const rootDir = isProduction ? 'dist' : 'src';
 
-if (process.env.NODE_ENV === 'development') {
+if (!isProduction) {
   require('dotenv/config');
 }
 
@@ -16,7 +17,7 @@ module.exports = {
   cli: {
     migrationsDir: rootDir + '/database/migrations',
   },
-  ssl: process.env.NODE_ENV === 'development' ? false : true,
+  ssl: isProduction,
   extra: {
     ssl: {
       rejectUnauthorized: false
