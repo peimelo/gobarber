@@ -3,20 +3,26 @@
 After clone this repository, install the dependencies:
 
 ```
-yarn
+yarn install
+```
+
+## Docker for Postgres database
+
+```
+# up docker
+docker compose up -d
+
+# create tables
+yarn dev:typeorm migration:run
+
+# stop database
+docker compose stop
 ```
 
 To run the project:
 
 ```
 yarn dev:server
-```
-
-## Docker for Postgres database
-
-```
-docker-compose up -d
-docker-compose stop
 ```
 
 Open your browser in `http://localhost:3333`
